@@ -103,7 +103,7 @@
                             }
                             else
                             {
-                                <button class="btn btn-danger">Out of stock</button>
+                                <button class="btn btn-danger" onclick="addToCart(this, @book.Id)">Out of stock</button>
                             }
                             <a asp-controller="Library" asp-action="AddReview" asp-route-id="@book.Id" class="btn btn-sm btn-secondary">Add Rating</a>
                         </div>
@@ -133,30 +133,32 @@
             $('#ratingContainer').fadeIn().delay(2000).fadeOut(1000);
         }
     
-        function addToCart(currentBtn, bookId) { 
-            
-            $.ajax({
-                type: "POST",
-                url: '/Library/AddToCart',
-                data: { bookId: bookId },
-                success: function (response) {
-                    $('#alertMessage').text(response.message);
-                    $('#alert').fadeIn();
-                    
-                    currentBtn.disabled = true;
-                    currentBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-                    
-                    setTimeout(function () {
-                        $('#alert').fadeOut();
-                        currentBtn.disabled = false;
-                        currentBtn.innerHTML = 'Add to Cart';
-                    }, 1200);
-                },
-                error: function (xhr, status, error) {
-                    window.location.href = "/Identity/Account/Login"
-                }
-            });
-            
-        }
+      function addToCart(currentBtn, bookId) {
+              $.ajax({
+                  type: "POST",
+                  url: '/Library/AddToCart',
+                  data: { bookId: bookId },
+                  success: function (response) {
+                      if (response.success) {
+                          $('#alertMessage').text(response.message);
+                          $('#alert').fadeIn();
+      
+                          currentBtn.disabled = true;
+                          currentBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+      
+                          setTimeout(function () {
+                              $('#alert').fadeOut();
+                              currentBtn.disabled = false;
+                              currentBtn.innerHTML = 'Add to Cart';
+                          }, 1200);
+                      } else {
+                          alert(response.message); // Display an alert or handle the out-of-stock case
+                      }
+                  },
+                  error: function (xhr, status, error) {
+                      window.location.href = "/Identity/Account/Login"
+                  }
+              });
+          }
     </script>
 }

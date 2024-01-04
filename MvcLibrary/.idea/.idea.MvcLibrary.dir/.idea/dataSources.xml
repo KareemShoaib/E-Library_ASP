@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="app" uuid="7805d921-794c-4ce2-b52a-1cb4eafec168">
+    <data-source source="LOCAL" name="app" uuid="67ca4097-87ad-4f74-bbda-c33a263cd722">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\kokor\Desktop\Gam3a\All_Personal_Projects\eLibrary\MvcLibrary\app.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\kokor\Desktop\eLibrary\MvcLibrary\app.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

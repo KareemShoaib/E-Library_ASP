@@ -44,6 +44,8 @@ public class LibraryController : Controller
 
         var user = await _userManager.GetUserAsync(User);
         
+     
+        
         //Retrieves the user's shopping cart
         //Contains nav properties for Cart items and Book
 
@@ -53,6 +55,9 @@ public class LibraryController : Controller
             .FirstOrDefaultAsync(c => c.User!.Id == user!.Id);
 
         if (cart != null)
+            
+            
+            
         {
             var existingCartItem = cart.CartItems!.FirstOrDefault(ci => ci.Book != null && ci.Book.Id == bookId);
 

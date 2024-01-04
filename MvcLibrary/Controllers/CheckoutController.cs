@@ -170,7 +170,7 @@ public class CheckoutController : Controller
             smtp.Port = 587;
             smtp.EnableSsl = true;
 
-            var networkCredential = new NetworkCredential("ebiblioteca.elibrary@gmail.com", "xqvw mtgx dosz hkjt");
+            var networkCredential = new NetworkCredential("ebiblioteca.elibrary@gmail.com", "");
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = networkCredential;
             smtp.Send(message);
